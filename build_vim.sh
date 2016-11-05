@@ -5,6 +5,12 @@ SOURCEDIR=$PREFIX/src
 WORKDIR=$SOURCEDIR/vim
 
 COMMANDS="echo 'building vim...'
+
+if [ ! -d $WORKDIR ]; then
+  cd $SOURCEDIR
+  git clone git@github.com:vim/vim.git
+fi
+
 cd $WORKDIR
 git pull
 ./configure --prefix=$PREFIX --with-features=huge --enable-gui=gnome2 --enable-fail-if-missing --enable-perlinterp --enable-pythoninterp --enable-python3interp --enable-rubyinterp
