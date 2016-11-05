@@ -7,8 +7,7 @@ WORKDIR=$SOURCEDIR/vim
 COMMANDS="echo 'building vim...'
 
 if [ ! -d $WORKDIR ]; then
-  cd $SOURCEDIR
-  git clone git@github.com:vim/vim.git
+  git clone git@github.com:vim/vim.git $WORKDIR
 fi
 
 cd $WORKDIR
