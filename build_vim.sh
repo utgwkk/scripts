@@ -1,7 +1,8 @@
 #!/bin/sh
 set -eu
 PREFIX=$HOME/local
-WORKDIR=$PREFIX/src/vim
+SOURCEDIR=$PREFIX/src
+WORKDIR=$SOURCEDIR/vim
 
 COMMANDS="echo 'building vim...'
 cd $WORKDIR
