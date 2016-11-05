@@ -14,10 +14,12 @@ fi
 
 if [ ! -d $WORKDIR ]; then
   git clone git@github.com:vim/vim.git $WORKDIR
+  cd $WORKDIR
+else
+  cd $WORKDIR
+  git pull
 fi
 
-cd $WORKDIR
-git pull
 ./configure --prefix=$PREFIX --with-features=huge --enable-gui=gnome2 --enable-fail-if-missing --enable-perlinterp --enable-pythoninterp --enable-python3interp --enable-rubyinterp
 make -j$CORE
 make install
