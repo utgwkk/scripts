@@ -7,6 +7,11 @@ CORE=`nproc`
 
 COMMANDS="echo 'building vim...'
 
+if [ ! -d $SOURCEDIR ]; then
+  echo 'mkdir -p $SOURCEDIR'
+  mkdir -p $SOURCEDIR
+fi
+
 if [ ! -d $WORKDIR ]; then
   git clone git@github.com:vim/vim.git $WORKDIR
 fi
