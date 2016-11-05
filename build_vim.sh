@@ -4,6 +4,15 @@ PREFIX=$HOME/local
 SOURCEDIR=$PREFIX/src
 WORKDIR=$SOURCEDIR/vim
 CORE=`nproc`
+OPTIONS=`echo "--prefix=$PREFIX
+--with-features=huge
+--enable-gui=gnome2
+--enable-fail-if-missing
+--enable-perlinterp
+--enable-pythoninterp
+--enable-python3interp
+--enable-rubyinterp
+" | tr '\n' ' '`
 
 COMMANDS="echo 'building vim...'
 
@@ -20,7 +29,7 @@ else
   git pull
 fi
 
-./configure --prefix=$PREFIX --with-features=huge --enable-gui=gnome2 --enable-fail-if-missing --enable-perlinterp --enable-pythoninterp --enable-python3interp --enable-rubyinterp
+./configure $OPTIONS
 make -j$CORE
 make install
 echo 'done.'"
